@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Title-->
+        <title>Our Solar System</title>
+        <!-- Meta -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Erik Rhodin Claesson">
+        <meta name="description" content="Page about our solar system">
+        <meta name="keywords" content="solar system, planets, orbit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Css Links -->
+        <link rel="stylesheet" href="../Css/StickyNavigation.css">
+        <link rel="stylesheet" href="../Css/CelestialBodies.css">
+        <link rel="stylesheet" href="../Css/TopNavigation.css">
+        <link rel="stylesheet" href="../Css/HomePageStyle.css">
+        <link rel="stylesheet" href="../Css/GeneralStyle.css"> 
+        <link rel="stylesheet" href="../Css/ProgressBar.css"> 
+        <link rel="stylesheet" href="../Css/BackToTop.css"> 
+        <link rel="stylesheet" href="../Css/Socials.css"> 
+        <!-- Script Links -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Other Links -->
+        <link rel="icon" href="../Pictures/solar-system.png">
+    </head>
+    <body>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        <!-- Top Header -->
+        <div class="header">
+            <div class="flow">
+                <img src="../Pictures/Home/Namnlöst-2.png" alt="">
+            </div>
+            <div class="overtext">
+                <p class="fade-in-text" style="transition: opacity 1.5s ease-in-out;">the beauty of space</p>
+            </div>
+            <h1 class="fade-in-text" style="transition: opacity 1.5s ease-in-out;">welcome to our official website where you can find our expeditions and studies!</h1>
+            <div class="social-icons">
+                <a href="mailto:example@gmail.com" target="_blank" class="icon gmail"></a>
+                <a href="https://twitter.com/example" target="_blank" class="icon twitter"></a>
+                <a href="https://instagram.com/example" target="_blank" class="icon instagram"></a>
+                <a href="https://youtube.com/channel/UCdXh9gKzDo6H_2q3oPW6Gzw" target="_blank" class="icon youtube"></a>
+                <a href="https://linkedin.com/in/example" target="_blank" class="icon linkedin"></a>
+            </div>
+            <div class="topnavigation">
+                
+                        <a href="Main.html" class="active">Home</a>
+                 
+                        <a href="AbousUs.html">About us</a>
+                  
+                        <a href="#">Contact</a>
+                 
+            </div>
+            <div class="TopLinks">
+                <a href="Main.html">
+                    <img src="../Pictures/AstroLogo.png" width="75" height="75" alt="CompanyLogo">
+                </a>
+                <a href="AbousUs.html">
+                    <img src="../Pictures/TextLogo.png" width="175" height="75" alt="Astro">
+                </a>
+            </div>
+        </div>
+        <main>
+            <!-- Solar System -->
+            <div class="celestialbodies fade-in-text" style="transition: opacity 4s ease-in-out;">
+                <!-- The Center Sun -->
+                <div class="sun">
+                    <a href="#sun.html" target="_blank">
+                        <img src="../Pictures/Sun/sun.webp" alt="Sun">
+                    </a>
+                    <div>The Sun</div>
+                </div>
+                <!-- Planets Orbiting The Sun -->
+                <div id="planet-mercury" class="planet">
+                    <a href="#mercury.html" target="_blank">
+                        <img src="../Pictures/Mercury/mercury.jpg" alt="Mercury">
+                    </a>
+                    <div>Mercury</div>
+                </div>
+                <div id="planet-venus" class="planet">
+                    <a href="#venus.html" target="_blank">
+                        <img src="../Pictures/Venus/venus.jpg" alt="Venus">
+                    </a>
+                    <div>Venus</div>
+                </div>
+                <div id="planet-earth" class="planet">
+                    <a href="#earth.html" target="_blank">
+                        <img src="../Pictures/Earth/earth.jpg" alt="Earth">
+                    </a>
+                    <div>Earth</div>
+                </div>
+                <div id="planet-mars" class="planet">
+                    <a href="#mars.html" target="_blank">
+                        <img src="../Pictures/Mars/mars.jpg" alt="Mars">
+                    </a>
+                    <div>Mars</div>
+                </div>
+                <div id="planet-jupiter" class="planet">
+                    <a href="#jupiter.html" target="_blank">
+                        <img src="../Pictures/Jupiter/Jupiter.jpg" alt="Jupiter">
+                    </a>
+                    <div>Jupiter</div>
+                </div>
+                <div id="planet-saturn" class="planet">
+                    <a href="#saturn.html" target="_blank">
+                        <img src="../Pictures/Saturn/saturn.png" alt="Saturn" style="width: 4vw; height: 4vw;">
+                    </a>
+                    <div style="margin-top: -16px;">Saturn</div>
+                </div>
+                <div id="planet-uranus" class="planet">
+                    <a href="#uranus.html" target="_blank">
+                        <img src="../Pictures/Uranus/uranus.jpg" alt="Uranus">
+                    </a>
+                    <div>Uranus</div>
+                </div>
+                <div id="planet-neptune" class="planet">
+                    <a href="#neptune.html" target="_blank">
+                        <img src="../Pictures/Neptune/neptune.png" alt="Neptune">
+                    </a>
+                    <div>Neptune</div>
+                </div>
+            </div>
+            <div class="Spacer"></div>
+        </main>
+        <div id="BtmInfo">Click the planets or use the navbar to read more!</div>
+        <nav>
+            <div style="list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;">
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="home" class="dropbtn">Home</button>
+                    <div id="home-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="home-input" onkeyup="filterFunction('home')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="sun" class="dropbtn">Sun</button>
+                    <div id="sun-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="sun-input" onkeyup="filterFunction('sun')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="mercury" class="dropbtn">Mercury</button>
+                    <div id="mercury-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="mercury-input" onkeyup="filterFunction('mercury')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="venus" class="dropbtn">Venus</button>
+                    <div id="venus-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="venus-input" onkeyup="filterFunction('venus')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="earth" class="dropbtn">Earth</button>
+                    <div id="earth-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="earth-input" onkeyup="filterFunction('earth')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="mars" class="dropbtn">Mars</button>
+                    <div id="mars-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="mars-input" onkeyup="filterFunction('mars')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="jupiter" class="dropbtn">Jupiter</button>
+                    <div id="jupiter-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="jupiter-input" onkeyup="filterFunction('jupiter')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="saturn" class="dropbtn">Saturn</button>
+                    <div id="saturn-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="saturn-input" onkeyup="filterFunction('saturn')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="uranus" class="dropbtn">Uranus</button>
+                    <div id="uranus-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="uranus-input" onkeyup="filterFunction('uranus')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown(this.id)" id="neptune" class="dropbtn">Neptune</button>
+                    <div id="neptune-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="neptune-input" onkeyup="filterFunction('neptune')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+                <div class="dropdown split">
+                    <button onclick="toggleDropdown(this.id)" id="other" class="dropbtn">other</button>
+                    <div id="other-dropdown" class="dropdown-content">
+                        <input type="text" placeholder="Search.." id="other-input" onkeyup="filterFunction('other')">
+                        <a href="#about">About</a>
+                    </div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div>  
+        </nav>
+        <div class="maininfo" style="height: 3000px;"></div>
+        <script src="../Javascript/BackToTop.js"></script>
+        <script src="../Javascript/Fade.js"></script>
+        <script src="../Javascript/Animation.js"></script>
+        <script src="../Javascript/StickyNavigation.js"></script>
+        <script src="../Javascript/ProgressBar.js"></script>
+    </body>
+</html>
+
+<!-- 
+Hello Chat GBT, I have an assignment for you and it will require you to take in many lines of code and using them to finish your assignment. You will take in Css, Html and Javascript and with these you will remake the website to be much more responsive while still keeping the design well made and you will make so on phones, the solar system animations and everything inside the tag main wont be shown, and you will also add a hamburger icon that is a menu which you can open in which the navigation bar will be on mobile phones. Meanwhile on laptops and pcs, the navigation bar will be sticky and will be shown without a hamburger menu. If at any point you stop writing the code then if i type next you will continue exactly from where you left off in your last message. Understood or do i need to clarify anything, or do you need more conditions and limits?
+-->

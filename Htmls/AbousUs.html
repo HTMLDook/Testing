@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Title-->
+        <title>Our Solar System</title>
+        <!-- Meta -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Erik Rhodin Claesson">
+        <meta name="description" content="Page about our solar system">
+        <meta name="keywords" content="solar system, planets, orbit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Css Links -->
+        <link rel="stylesheet" href="../Css/AboutUs.css">
+        <link rel="stylesheet" href="../Css/StickyNavigation.css">
+        <link rel="stylesheet" href="../Css/CelestialBodies.css">
+        <link rel="stylesheet" href="../Css/TopNavigation.css">
+        <link rel="stylesheet" href="../Css/GeneralStyle.css">
+        <link rel="stylesheet" href="../Css/ProgressBar.css">
+        <link rel="stylesheet" href="../Css/BackToTop.css">
+        <link rel="stylesheet" href="../Css/Socials.css">
+        <!-- Script Links -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Other Links -->
+        <link rel="icon" href="../Pictures/solar-system.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body,
+            html {
+                height: 100%;
+                margin: 0;
+                font: 400 15px/1.8 "Lato", sans-serif;
+                color: #777;
+            }
+
+            .bgimg-2,
+            .bgimg-3 {
+                position: relative;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .bgimg-1 {
+                position: relative;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .bgimg-1 {
+                background-image: url("../Pictures/earth.jpg");
+                min-height: 100%;
+            }
+
+            .bgimg-2 {
+                background-image: url("../Pictures/space-odyssey.jpg");
+                min-height: 100%;
+            }
+
+            .bgimg-3 {
+                background-image: url("../Pictures/black.jpg");
+                min-height: 100%;
+            }
+
+            .caption1 {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                color: #000;
+                font-family: "star_jedi_outlineregular";
+                letter-spacing: 0.2em;
+                font-weight: normal;
+                font-style: normal;
+                font-size: 3.0em;
+            }
+
+            .caption1 span.border {
+                background-color: #111;
+                color: #fff;
+            }
+
+            .caption3 {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                color: #000;
+                font-family: "star_jedi_outlineregular";
+                letter-spacing: 0.2em;
+                font-weight: normal;
+                font-style: normal;
+                font-size: 3.0em;
+            }
+
+            .caption3 span.border {
+                background-color: #111;
+                color: #fff;
+            }
+
+            h3 {
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                font: 20px "Lato", sans-serif;
+                color: #111;
+            }
+
+            /* Turn off parallax scrolling for tablets and phones */
+            @media only screen and (max-device-width: 1024px) {
+
+                .bgimg-1,
+                .bgimg-2,
+                .bgimg-3 {
+                    background-attachment: scroll;
+                }
+                
+            }
+
+            .TopMemCard {
+                display: flex;
+                justify-content: center
+            }
+
+            .card {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+                width: 30%;
+                border-radius: 5px;
+            }
+
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .TopMemCard .card img {
+                border-radius: 5px 5px 0 0;
+            }
+
+            .container {
+                padding: 2px 16px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            img {
+                vertical-align: middle;
+            }
+
+            /* Position the image container (needed to position the left and right arrows) */
+            .container {
+                position: relative;
+                width: 40%;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Add a pointer when hovering over the thumbnail images */
+            .cursor {
+                cursor: pointer;
+            }
+
+            /* Next & previous buttons */
+            .prev,
+            .next {
+                cursor: pointer;
+                position: absolute;
+                top: 40%;
+                width: auto;
+                padding: 16px;
+                margin-top: -50px;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+                color: #f2f2f2;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+            }
+
+            /* Container for image text */
+            .caption-container {
+                height: 7vh;
+                text-align: center;
+                background-color: #222;
+                padding: 2px 16px;
+                color: white;
+            }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Six columns side by side */
+            .column {
+                float: left;
+                width: 16.66%;
+            }
+
+            /* Add a transparency effect for thumnbail images */
+            .demo {
+                opacity: 0.6;
+            }
+
+            .active,
+            .demo:hover {
+                opacity: 1;
+            }
+
+            #myImg {
+                border-radius: 5px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            #myImg:hover {
+                opacity: 0.7;
+            }
+
+            /* The Modal (background) */
+            .modal {
+                display: none;
+                /* Hidden by default */
+                position: fixed;
+                /* Stay in place */
+                z-index: 1;
+                /* Sit on top */
+                padding-top: 100px;
+                /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%;
+                /* Full width */
+                height: 100%;
+                /* Full height */
+                overflow: auto;
+                /* Enable scroll if needed */
+                background-color: rgb(0, 0, 0);
+                /* Fallback color */
+                background-color: rgba(0, 0, 0, 0.9);
+                /* Black w/ opacity */
+            }
+
+            /* Modal Content (image) */
+            .modal-content {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+            }
+
+            /* Caption of Modal Image */
+            #caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ccc;
+                padding: 10px 0;
+                height: 150px;
+            }
+
+            /* Add Animation */
+            .modal-content,
+            #caption {
+                -webkit-animation-name: zoom;
+                -webkit-animation-duration: 0.6s;
+                animation-name: zoom;
+                animation-duration: 0.6s;
+            }
+
+            @-webkit-keyframes zoom {
+                from {
+                    -webkit-transform: scale(0)
+                }
+
+                to {
+                    -webkit-transform: scale(1)
+                }
+            }
+
+            @keyframes zoom {
+                from {
+                    transform: scale(0)
+                }
+
+                to {
+                    transform: scale(1)
+                }
+            }
+
+            /* The Close Button */
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+           
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px) {
+                .modal-content {
+                    width: 100%;
+                }
+            }
+
+            @media only screen and (max-device-width: 767px) {
+                .container {
+                    display: none;
+                }
+            }
+
+
+
+
+
+
+
+            /* CSS styling */
+      .containerur {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      
+      .left {
+        flex: 1;
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .right {
+        flex: 2;
+        padding: 20px;
+      }
+      
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        
+      }
+      
+      h5 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #00A78E;
+    letter-spacing: 4px;
+    height: 0;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+    margin-top: 20px;
+}
+
+@media only screen and (max-device-width: 767px) {
+    .containerur .left img {
+        display: none;
+    }
+ 
+    .containerur {
+        display: block;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .containerur .left img {
+        display: none;
+    }
+    .containerur {
+        display: block;
+    }
+}
+        </style>
+    </head>
+
+
+    <body>
+        <div class="bgimg-1">
+            <div>
+                <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+                <!-- Top Header -->
+                <div class="header">
+                    <div class="social-icons">
+                        <a href="mailto:example@gmail.com" target="_blank" class="icon gmail"></a>
+                        <a href="https://twitter.com/example" target="_blank" class="icon twitter"></a>
+                        <a href="https://instagram.com/example" target="_blank" class="icon instagram"></a>
+                        <a href="https://youtube.com/channel/UCdXh9gKzDo6H_2q3oPW6Gzw" target="_blank" class="icon youtube"></a>
+                        <a href="https://linkedin.com/in/example" target="_blank" class="icon linkedin"></a>
+                    </div>
+                    <div class="topnavigation">
+                        
+                        <a href="Main.html">Home</a>
+                    
+                        <a href="AbousUs.html" class="active">About us</a>
+                    
+                        <a href="#">Contact</a>
+                           
+                    </div>
+                    <div class="TopLinks">
+                        <a href="Main.html">
+                            <img src="../Pictures/AstroLogo.png" width="75" height="75" alt="CompanyLogo">
+                        </a>
+                        <a href="AbousUs.html">
+                            <img src="../Pictures/TextLogo.png" width="175" height="75" alt="Astro">
+                        </a>
+                    </div>
+                </div>
+                <div class="caption3">
+                    <span class="border fade-in-text" style="background-color:transparent;color: #f7f7f7;transition: opacity 1.5s ease-in-out;">Welcome to Astro</span>
+                </div>
+            </div>
+        </div>
+        <div style="color: #777;background-color:black;text-align:center;text-align: justify;">
+
+
+
+
+
+
+
+
+
+
+            <!-- HTML layout -->
+            <div class="containerur">
+                <div class="left">
+                    <img id="myImg" src="../Pictures/AstroLogo.png" alt="Snow" style="width:100%;width:450px; transition: opacity 2s ease-in-out;" class="fade-in-text">
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption1"></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <h5 class="fade-in-text" style="transition: opacity 0.5s ease-in-out; text-align: center;">Astro</h5>
+                    <h2 class="fade-in-text" style="transition: opacity 1.5s ease-in-out;text-align: center;">About us</h2>
+                    <p class="fade-in-text" style="transition: opacity 2.5s ease-in-out;text-align: center; color: white;">Welcome to our space exploration company, dedicated to unlocking the secrets of our solar system. We are a team of passionate and skilled scientists, engineers, and explorers committed to advancing our understanding of the universe through research and analysis of the planets, moons, and other celestial bodies in our solar system.
+                    <br><br>
+                    Our company specializes in the development and deployment of cutting-edge technologies that enable us to collect and analyze data from the far reaches of space. We design and launch probes and satellites to gather information about the composition, structure, and behavior of our neighboring planets and other celestial bodies.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="bgimg-2">
+            <div class="caption1">
+                <span class="border fade-in-text" style="background-color:transparent;color: #f7f7f7; transition: opacity 1.5s ease-in-out;">the wonders of space...</span>
+            </div>
+        </div>
+        <div style="position:relative;">
+            <div style="color:white;background-color:black;text-align:center;padding:50px 80px;text-align: justify; text-align: center;">
+                <h5 class="fade-in-text" style="transition: opacity 0.5s ease-in-out; text-align: center;">Founders</h5>
+                <h2 class="fade-in-text" style="transition: opacity 1.5s ease-in-out;text-align: center;">Our Team</h2>
+                <p class="fade-in-text" style="transition: opacity 2.5s ease-in-out;">With a deep respect for the mysteries and complexities of the universe, we approach our work with a sense of wonder and curiosity that drives us to push the boundaries of what is possible. Our team is committed to advancing scientific knowledge and making groundbreaking discoveries that contribute to a greater understanding of our place in the cosmos.
+                At our core, we are driven by a belief in the power of exploration and discovery to unlock new opportunities and possibilities for humanity. Join us on this exciting journey as we continue to explore the vast expanse of our solar system and beyond. </p>
+                <div class="TopMemCard" style="display: flex;" >
+                    <div class="card fade-in-text" style="transition: opacity 3.5s ease-in-out;">
+                        <img src="../Pictures/COO.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4>
+                                <b>Amanda Rose</b>
+                            </h4>
+                            <p>COO</p>
+                        </div>
+                    </div>
+                    <div class="card fade-in-text" style="transition: opacity 4.5s ease-in-out;">
+                        <img src="../Pictures/CEO.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4>
+                                <b>Jake Pinsky</b>
+                            </h4>
+                            <p>CEO</p>
+                        </div>
+                    </div>
+                    <div class="card fade-in-text" style="transition: opacity 5.5s ease-in-out;">
+                        <img src="../Pictures/CFO.png" alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h4>
+                                <b>Julia Novak</b>
+                            </h4>
+                            <p>CFO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bgimg-3">
+            <div class="caption1">
+                <span class="border fade-in-text" style="background-color:transparent;color: #f7f7f7;transition: opacity 1.5s ease-in-out;">in The Beyond...</span>
+            </div>
+        </div>
+        <div style="position:relative;">
+            <div style="color: white;background-color:black;text-align:center;padding:50px 80px;text-align: justify;">
+                <div style="display: flex;">
+                    <div class="container fade-in-text" style="transition: opacity 1.5s ease-in-out;">
+                        <div class="mySlides">
+                            <div class="numbertext">1 / 6</div>
+                            <img src="../Pictures/WaterOnMars.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">2 / 6</div>
+                            <img src="../Pictures/Sun/sun.webp" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">3 / 6</div>
+                            <img src="../Pictures/Sun/sun.webp" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">4 / 6</div>
+                            <img src="../Pictures/Sun/sun.webp" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">5 / 6</div>
+                            <img src="../Pictures/Sun/sun.webp" style="width:100%">
+                        </div>
+                        <div class="mySlides">
+                            <div class="numbertext">6 / 6</div>
+                            <img src="../Pictures/Sun/sun.webp" style="width:100%">
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                        <div class="caption-container">
+                            <p id="caption"></p>
+                        </div>
+                        <div class="row">
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/WaterOnMars.jpg" style="width:100%" onclick="currentSlide(1)" alt="Water Map On Mars">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/Sun/sun.webp" style="width:100%" onclick="currentSlide(2)" alt="Info ">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/Sun/sun.webp" style="width:100%" onclick="currentSlide(3)" alt="Info ">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/Sun/sun.webp" style="width:100%" onclick="currentSlide(4)" alt="Info ">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/Sun/sun.webp" style="width:100%" onclick="currentSlide(5)" alt="Info ">
+                            </div>
+                            <div class="column">
+                                <img class="demo cursor" src="../Pictures/Sun/sun.webp" style="width:100%" onclick="currentSlide(6)" alt="Info ">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-left:auto; width: 50%;">
+                        <h5 class="fade-in-text" style="transition: opacity 0.5s ease-in-out; text-align: center;">Expeditions</h5>
+                        <h2 class="fade-in-text" style="transition: opacity 1.5s ease-in-out;text-align: center;">Recent Discoveries</h2>
+                        <p class="fade-in-text" style="transition: opacity 2.5s ease-in-out;text-align: center; color: white;">Astro is a space exploration company that is dedicated to uncovering the mysteries of our solar system. Using advanced technology and cutting-edge research, Astro conducts expeditions to various celestial bodies within our solar system, such as planets, moons, and asteroids. The company's team of scientists and engineers work tirelessly to gather data and images that reveal new insights about the cosmos.
+                        <br><br>
+                        Astro has made many exciting discoveries in recent years, such as evidence of water on Mars and the existence of potentially habitable moons around Jupiter and Saturn. The company regularly shares its latest findings with the public through stunning pictures and engaging presentations, inspiring the next generation of space explorers and scientists. With its ambitious vision and unwavering dedication to discovery, Astro is at the forefront of space exploration and research.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="bgimg-1">
+            <div class="caption1">
+                <span class="border fade-in-text" style="background-color:transparent;color: #f7f7f7; transition: opacity 1.5s ease-in-out; text-decoration: underline;">Read More?</span>
+            </div>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("myImg");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+            // Get the span element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            // When the user clicks on span (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        </script>
+        <script src="../Javascript/BackToTop.js"></script>
+        <script src="../Javascript/Fade.js"></script>
+    </body>
+</html>
